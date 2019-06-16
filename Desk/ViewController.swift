@@ -9,7 +9,11 @@
 import Cocoa
 
 class ViewController: NSViewController {
-
+    
+    
+    @IBOutlet weak var label: NSTextField!
+    @IBOutlet weak var inputText: NSTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,5 +27,17 @@ class ViewController: NSViewController {
     }
 
 
+    @IBAction func btnAction(_ sender: Any) {
+        
+        if inputText.stringValue.isEmpty {
+            let alert = NSAlert()
+            alert.messageText = "ERROR!"
+            alert.informativeText = "Masukkan teks"
+            alert.alertStyle = .warning
+            alert.runModal()
+        } else {
+            label.stringValue = inputText.stringValue
+        }
+    }
 }
 
